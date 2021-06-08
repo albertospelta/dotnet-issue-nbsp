@@ -1,0 +1,42 @@
+{
+  "name": "ModelTest",
+  "compatibilityLevel": 1400,
+  "model": {
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "name": "SqlServer",
+        "connectionString": "Data Source=database.windows.net;Initial Catalog=STAGING;",
+        "impersonationMode": "impersonateServiceAccount",
+        "maxConnections": 12,
+        "provider": "System.Data.SqlClient"
+      }
+    ],
+    "tables": [
+      {
+        "name": "Table1",
+        "partitions": [
+          {
+            "name": "Default",
+            "mode": "import",
+            "source": {
+              "type": "query",
+              "query": "SELECT NULL",
+              "dataSource": "SqlServer"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Measure 1",
+            "expression": "10"
+          },
+          {
+            "name": "Measure 1",
+            "expression": "20"
+          }
+        ]
+      }
+    ]
+  }
+}
